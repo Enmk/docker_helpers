@@ -1,8 +1,17 @@
 #! /bin/bash
 
-# ls into docker image layer by layer, useful for comparing images
+# see into docker image: history, metadata, fs contents layer by layer, useful for comparing images
+# usage:
+#   docker_image_layers.sh <DOCKER_IMAGE_NAME> [<OUTPUT_DIRECTORY>]
+# where:
+#   <DOCKER_IMAGE_NAME> is a fully qualified docker image name
+#   <OUTPUT_DIRECTORY> directory to place unpacked docker image (for further manual examination perhaps?),
+#       if not set image is upacked into temporary directory which is cleaned up later.
+#
+# Dependencies: docker, tar, jq, sed
 
-set -e
+# Author: Vasily Nemkov / 2023
+# License: MIT
 
 readonly IMAGE_NAME="$1"
 readonly TMP_DIR=$(mktemp -d -t)
