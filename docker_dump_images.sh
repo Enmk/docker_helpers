@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Dumps docker image structure and list of installed packages,
+# dump docker image structure and list of installed packages,
 # making it easier to compare images of different versions
 # with visual comparison tools like diff, meld, kdiff3, etc.
 #
